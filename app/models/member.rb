@@ -8,10 +8,12 @@ class Member < ApplicationRecord
    def self.from_omniauth(auth)
 		where(provider: auth.provider , uid: auth.uid).first_or_create do |member|
 			
-			member.email = auth.info.email
+			if auth.info
+				member.email = auth.info.email
+				member.name = auth.info.name
+				member.image = auth.info.image
+			end
 			member.password = Devise.friendly_token[0,20]
-			member.name = auth.info.name
-			member.image = auth.info.image
 		
 		end
    end

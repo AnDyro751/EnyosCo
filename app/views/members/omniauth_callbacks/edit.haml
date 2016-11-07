@@ -1,0 +1,16 @@
+-@member.errors.full_messages.each do |error|
+	%li=error
+= form_tag "/complete_register" , method: :post do
+	.input
+		%label{for:"member_username"}Username
+		= text_field_tag "member[username]" , @member.username	
+
+	.input
+		%label{for:"member_email"}Email
+		= text_field_tag "member[email]" , @member.email	
+
+	.input
+		%label{for:"member_name"}Name
+		= text_field_tag "member[name]" , @member.name	
+	.actions
+		= submit_tag "Complete register"
