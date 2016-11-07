@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :posts
-  devise_for :members
+  devise_for :members , controllers:{
+    omniauth_callbacks: "members/omniauth_callbacks"
+  }
 
   authenticated :member do
     root "main#home"
