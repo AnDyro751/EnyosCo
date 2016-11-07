@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Body:
+  = @post.body
+%p
+  %b Member:
+  = @post.member
+
+= link_to 'Edit', edit_post_path(@post)
+\|
+= link_to 'Back', posts_path

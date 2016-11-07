@@ -1,2 +1,5 @@
 %h1 Main#home
-%p Find me in app/views/main/home.html.haml
+= render "posts/form"
+= link_to "Cerrar sesion" , destroy_member_session_path , method: :delete
+#posts
+  = render @posts
